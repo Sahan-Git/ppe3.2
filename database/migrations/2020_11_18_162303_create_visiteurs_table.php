@@ -13,7 +13,7 @@ class CreateVisiteursTable extends Migration
      */
     public function up()
     {
-        Schema::create('visiteur', function (Blueprint $table) {
+        Schema::create('visiteurs', function (Blueprint $table) {
             $table->increments('id');
             $table->string("nom");
             $table->string("prenom");

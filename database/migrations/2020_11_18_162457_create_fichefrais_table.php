@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateLignefraishorsforfaitsTable extends Migration
+class CreateFichefraisTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,20 @@ class CreateLignefraishorsforfaitsTable extends Migration
      */
     public function up()
     {
-        Schema::create('ligne_frais_hors_forfaits', function (Blueprint $table) {
+        Schema::create('fichefrais', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger("visiteur_id");
             $table->string("mois");
-            $table->string("libelle");
-            $table->date("date");
-            $table->double("montant");
+            $table->integer("nbJustificatifs");
+            $table->double("montantValide");
+            $table->date("dateModif");
+            $table->unsignedInteger("etat_id");
             $table->foreign("visiteur_id")
                 ->references("id")
-                ->on("visiteur");
+                ->on("visiteurs");
+            $table->foreign("etat_id")
+                ->references("id")
+                ->on("etats");
             $table->timestamps();
         });
     }
@@ -34,6 +38,6 @@ class CreateLignefraishorsforfaitsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('lignefraishorsforfaits');
+        Schema::dropIfExists('fichefrais');
     }
 }

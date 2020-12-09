@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  lun. 26 oct. 2020 à 17:49
+-- Généré le :  mer. 18 nov. 2020 à 13:14
 -- Version du serveur :  10.4.10-MariaDB
 -- Version de PHP :  7.3.12
 
@@ -28,14 +28,21 @@ SET time_zone = "+00:00";
 -- Structure de la table `etat`
 --
 
-DROP TABLE IF EXISTS `etat`;
 CREATE TABLE IF NOT EXISTS `etat` (
   `id` char(2) NOT NULL,
   `libelle` varchar(30) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Déchargement des données de la table `etat`
+--
 
+INSERT INTO `etat` (`id`, `libelle`) VALUES
+('CL', 'Saisie clôturée'),
+('CR', 'Fiche créée, saisie en cours'),
+('RB', 'Remboursée'),
+('VA', 'Validée et mise en paiement');
 
 -- --------------------------------------------------------
 
@@ -43,7 +50,6 @@ CREATE TABLE IF NOT EXISTS `etat` (
 -- Structure de la table `fichefrais`
 --
 
-DROP TABLE IF EXISTS `fichefrais`;
 CREATE TABLE IF NOT EXISTS `fichefrais` (
   `idVisiteur` char(4) NOT NULL,
   `mois` char(6) NOT NULL,
@@ -554,7 +560,6 @@ INSERT INTO `fichefrais` (`idVisiteur`, `mois`, `nbJustificatifs`, `montantValid
 -- Structure de la table `fraisforfait`
 --
 
-DROP TABLE IF EXISTS `fraisforfait`;
 CREATE TABLE IF NOT EXISTS `fraisforfait` (
   `id` char(3) NOT NULL,
   `libelle` char(20) DEFAULT NULL,
@@ -562,7 +567,15 @@ CREATE TABLE IF NOT EXISTS `fraisforfait` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Déchargement des données de la table `fraisforfait`
+--
 
+INSERT INTO `fraisforfait` (`id`, `libelle`, `montant`) VALUES
+('ETP', 'Forfait Etape', '110.00'),
+('KM', 'Frais Kilométrique', '0.62'),
+('NUI', 'Nuitée Hôtel', '80.00'),
+('REP', 'Repas Restaurant', '25.00');
 
 -- --------------------------------------------------------
 
@@ -570,7 +583,6 @@ CREATE TABLE IF NOT EXISTS `fraisforfait` (
 -- Structure de la table `lignefraisforfait`
 --
 
-DROP TABLE IF EXISTS `lignefraisforfait`;
 CREATE TABLE IF NOT EXISTS `lignefraisforfait` (
   `idVisiteur` char(4) NOT NULL,
   `mois` char(6) NOT NULL,
@@ -2541,7 +2553,6 @@ INSERT INTO `lignefraisforfait` (`idVisiteur`, `mois`, `idFraisForfait`, `quanti
 -- Structure de la table `lignefraishorsforfait`
 --
 
-DROP TABLE IF EXISTS `lignefraishorsforfait`;
 CREATE TABLE IF NOT EXISTS `lignefraishorsforfait` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `idVisiteur` char(4) NOT NULL,
@@ -4089,7 +4100,6 @@ INSERT INTO `lignefraishorsforfait` (`id`, `idVisiteur`, `mois`, `libelle`, `dat
 -- Structure de la table `visiteur`
 --
 
-DROP TABLE IF EXISTS `visiteur`;
 CREATE TABLE IF NOT EXISTS `visiteur` (
   `id` char(4) NOT NULL,
   `nom` char(30) DEFAULT NULL,

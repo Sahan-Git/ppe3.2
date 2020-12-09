@@ -13,7 +13,7 @@ class CreateFraisforfaitsTable extends Migration
      */
     public function up()
     {
-        Schema::create('frais_forfaits', function (Blueprint $table) {
+        Schema::create('fraisforfaits', function (Blueprint $table) {
             $table->increments('id');
             $table->string('libelle');
             $table->double('montant');
@@ -28,6 +28,6 @@ class CreateFraisforfaitsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('fraisforfaits');
+        Schema::dropIfExists('frais_forfaits');
     }
 }
