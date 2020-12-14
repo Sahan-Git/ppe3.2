@@ -2693,7 +2693,7 @@ INSERT INTO `lignefraishorsforfaits` (`id`, `visiteur_id`, `mois`, `libelle`, `d
 (681, 12, '201912', 'location salle conférence', '2019-12-14', '266.00'),
 (682, 12, '201912', 'repas avec praticien', '2019-12-28', '43.00'),
 (683, 12, '202001', 'traiteur, alimentation, boisson', '2020-01-06', '323.00');
-INSERT INTO `lignefraishorsforfaits` (`id`, `visiteurs_id`, `mois`, `libelle`, `date`, `montant`) VALUES
+INSERT INTO `lignefraishorsforfaits` (`id`, `visiteur_id`, `mois`, `libelle`, `date`, `montant`) VALUES
 (684, 12, '202001', 'traiteur, alimentation, boisson', '2020-01-18', '196.00'),
 (685, 12, '202001', 'achat de matériel de papèterie', '2020-01-23', '48.00'),
 (686, 12, '202002', 'achat de matériel de papèterie', '2020-02-03', '36.00'),
@@ -3368,7 +3368,7 @@ INSERT INTO `lignefraishorsforfaits` (`id`, `visiteurs_id`, `mois`, `libelle`, `
 (1355, 24, '201910', 'frais vestimentaire/représentation', '2019-10-17', '247.00'),
 (1356, 24, '201911', 'repas avec praticien', '2019-11-09', '41.00'),
 (1357, 24, '201912', 'frais vestimentaire/représentation', '2019-12-03', '178.00');
-INSERT INTO `lignefraishorsforfaits` (`id`, `visiteurs_id`, `mois`, `libelle`, `date`, `montant`) VALUES
+INSERT INTO `lignefraishorsforfaits` (`id`, `visiteur_id`, `mois`, `libelle`, `date`, `montant`) VALUES
 (1358, 24, '202001', 'traiteur, alimentation, boisson', '2020-01-03', '273.00'),
 (1359, 24, '202002', 'traiteur, alimentation, boisson', '2020-02-21', '368.00'),
 (1360, 24, '202002', 'repas avec praticien', '2020-02-12', '33.00'),
